@@ -1,0 +1,13 @@
+methods: {
+    init: function () {},
+    fetchData: function () {
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open("GET", sheetUrl);
+      xhr.onload = function () {
+        self.entries = JSON.parse(xhr.responseText);
+        self.entries = self.entries.feed.entry;
+        console.log(self.entry);
+      };
+      xhr.send();
+    },
